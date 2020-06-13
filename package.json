@@ -4,11 +4,16 @@
     "description": "",
     "main": "src/server.ts",
     "scripts": {
-        "start": "ts-node-dev --ignore-watch node_modules ./src/server.ts",
-        "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
-        "knex:seed": "knex --knexfile knexfile.ts seed:run",
-        "prepare-db": "npm run knex:migrate && npm run knex:seed",
-        "lint": "eslint ./src"
+        "start-dev": "ts-node-dev --ignore-watch node_modules ./src/server.ts",
+        "knex:migrate-dev": "knex --knexfile src/database/knexfile.ts migrate:latest",
+        "knex:seed-dev": "knex --knexfile src/database/knexfile.ts seed:run",
+        "prepare-db-dev": "npm run knex:migrate-dev && npm run knex:seed-dev",
+        "lint": "eslint ./src",
+        "build": "npm run lint && tsc",
+        "start": "npm ci && npm run prepare-db && node ./dist/server.js",
+        "knex:migrate": "knex --knexfile dist/database/knexfile.js migrate:latest",
+        "knex:seed": "knex --knexfile dist/database/knexfile.js seed:run",
+        "prepare-db": "npm run knex:migrate && npm run knex:seed"
     },
     "keywords": [],
     "author": "",
