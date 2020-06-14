@@ -10,9 +10,9 @@
         "prepare-db-dev": "npm run knex:migrate-dev && npm run knex:seed-dev",
         "lint": "eslint ./src",
         "build": "npm run lint && tsc",
-        "start": "npm ci && npm run prepare-db && node ./dist/server.js",
-        "knex:migrate": "knex --knexfile dist/database/knexfile.js migrate:latest",
-        "knex:seed": "knex --knexfile dist/database/knexfile.js seed:run",
+        "start": "npm run prepare-db && node ./dist/server.js",
+        "knex:migrate": "knex --knexfile ./dist/database/knexfile.js migrate:latest",
+        "knex:seed": "knex --knexfile ./dist/database/knexfile.js seed:run",
         "prepare-db": "npm run knex:migrate && npm run knex:seed"
     },
     "keywords": [],
