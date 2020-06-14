@@ -6,7 +6,7 @@
     API WEB para projeto e-Coleta, desenvolvido durante a primeira edição da Next Level Week
 </p>
 
-## 🎯 Sobre
+## 🎯&nbsp;&nbsp;&nbsp;Sobre
 
 O projeto e-Coleta tem como objetivo a conexão entre os consumidores finais de produtos que precisam de descarte qualificado e os pontos de coleta, onde os descartes podem ser realizados com segurança.
 
@@ -14,7 +14,7 @@ Através de uma interface web, os responsáveis por pontos de coleta podem se ca
 
 Os usuários por sua vez terão acesso via um aplicativo mobile, onde terão a possibilidade de encontrar o melhor ponto de coleta para o item que deseja descartar.
 
-## 🖥 Tecnologia
+## 🖥&nbsp;&nbsp;&nbsp;Tecnologia
 
 O backend (este repositório) foi desenvolvido usando typescript, o framework express para exposição de endpoints e knex para construção de consultas SQL. O banco de dados usado foi o SQLite pela facilidade de configuração e o fato de não precisar de nenhuma dependência do sistema ambiente de execução (o banco de dados é salvo em um arquivo).
 
@@ -30,7 +30,7 @@ A interface mobile ...
 * SQLite
 * Docker
 
-## 🚀 Execução
+## 🚀&nbsp;&nbsp;&nbsp;Execução
 
 Há duas formas de se executar o projeto (api), a primeira e mais simples é usando Docker, a segunda é pelo código fonte.
 
