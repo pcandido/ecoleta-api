@@ -30,13 +30,32 @@ A interface mobile ...
 * SQLite
 * Docker
 
+## 🐳&nbsp;&nbsp;&nbsp;Integração contínua
+
+Através do GitHub Actions, a cada commit na branch `master`, um workflow de integração contínua é executado. As especificações do worflow estão no arquivo `.github/workflows/build-and-deploy.yml`.
+
+O que o workflow faz é:
+* Configurar o ambiente de build e fazer checkout do código fonte
+* Instalar as dependências, observando o arquivo `package-lock.json` para assegurar que as versões corretas sejam instaladas
+* Executar o processo de build, descrito em `package.json`, que:
+  * Executa o ESLint para verificar se há alguma regra quebrada
+  * Transpilação do código Typescript para Javascript, na pasta `dist`
+* Salvar os artefatos gerados (diretório `dist`) para o próximo job do workflow
+* Configurar um segundo ambiente e fazer novamente o checkout do código fonte
+* Baixar os artefatos gerados no anteriormente
+* Construir a imagem Docker
+* Fazer login no registry do DockerHub
+* Fazer push da imagem recem construída
+
+ Pela simplicidade do workflow, seria possível executar tudo em um único job, mas foram usados dois jobs para explorar essa possibilidade, útil em workflows mais complexos.
+
 ## 🚀&nbsp;&nbsp;&nbsp;Execução
 
 Há duas formas de se executar o projeto (api), a primeira e mais simples é usando Docker, a segunda é pelo código fonte.
 
 ### Docker
 
-`docker run -p 3000:3000 pcandido/ecoleta-api`
+`docker run --name ecoleta -p 3000:3000 -d pcandido/ecoleta-api`
 
 ### Código fonte
 
